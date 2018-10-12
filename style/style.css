@@ -1,0 +1,58 @@
+body {
+	background-color: #2C2F33;
+	color: white;
+	font-weight: bold;
+	font-family: Tahoma;
+}
+
+details {
+	color: #99AAB5;
+}
+
+summary {
+	color: #7289DA;
+}
+
+input{
+	width: 100%;
+	color: #7289DA;
+	background: #23272A;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 0;
+	border-radius: 4px;
+	box-sizing: border-box;	
+}
+
+.discord {
+    position: fixed;
+    padding: 7px;
+    bottom: 0;
+    right: 0;
+    max-width: 450px;
+    z-index: 999;
+}
+
+.pie {
+	height:300px;
+	width:100%;
+}
+
+::placeholder{
+	color: #7289DA;
+	font-weight: bold;
+	font-family: Tahoma;
+}
+
+a[title="JavaScript charts"] {
+	visibility: hidden;
+}
+
+:link, :visited {
+    color:#7289DA;
+}
+
+:active {
+    color:#FFFFFF;
+}

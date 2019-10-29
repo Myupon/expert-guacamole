@@ -1,38 +1,31 @@
-/********************************************************************************
-*                                                                              *
-*                   Architetture dei sistemi di Elaborazione                   *
-*                                                                              *
-********************************************************************************
-
-Elaborato 3
-Descrizione: Dato un array di bit, restituire le posizioni dei soli bit
-			 uguali a 1.
-
-********************************************************************************/
+/*
+Ex03
+Given a bit array only print the positions of the bits set to 1.
+*/
 
 #include <stdio.h>
 
 void main()
 {
 	// Input
-	unsigned char vet[] = { 0xAA,0xFC,0x09 };	//Array di byte
-												//(da considerare come una sequenza di bit)
-	unsigned short int len = 19;				//Lunghezza (numero di bit)
+	unsigned char vect[] = { 0xAA,0xFC,0x09 };	//Byte Array
+							//(to be considered as bit sequence)
+	unsigned short int len = 19;			//Length (bit count)
 
 	// Output
-	short posizioni[1024]; //Posizioni dei soli bit con valore 1
+	short pos[1024]; //Positions of the bits set to 1
 
 	__asm
 	{
 		
 	}
 
-	// Stampa su video
+	// Print
 	{
 		int i = 0;
-		while (i <= len && posizioni[i] != -1)
+		while (i <= len && pos[i] != -1)
 		{
-			printf("%d\n", posizioni[i++]);
+			printf("%d\n", pos[i++]);
 		}
 	}
 }

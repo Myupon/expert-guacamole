@@ -1,39 +1,32 @@
-/********************************************************************************
-*                                                                              *
-*                   Architetture dei sistemi di Elaborazione                   *
-*                                                                              *
-********************************************************************************
-
-Elaborato 2
-Descrizione: Dato in input il livello massimo richiesto, restituire il rispettivo
-			 triangolo di Tartaglia memorizzando consecutivamente i vari livelli
-			 all'interno di un array monodimensionale.
-
-********************************************************************************/
+/*
+Ex02
+Given the maximum level as input, print the respective Pascal's Triangle
+memorizing consecutively the different levels in a monodimensional array.
+*/
 
 #include <stdio.h>
 
 void main()
 {
 	// Input
-	unsigned int livello = 8;		// livello massimo del triangolo di tartaglia da generare
+	unsigned int level = 8;		// Maximum level to generate
 
 	// Output
-	unsigned int triangolo[1024];	// risultato: il vettore contiene i numeri del 
-									// triangolo dal livello 0 al pi・alto richiesto
+	unsigned int triangle[1024];	// Result: contains the triangle numbers from
+					// the lowest to the highest level requested
 
 	unsigned int i;
 	unsigned int k = 0;
 	
 	__asm
 	{
-		MOV triangolo[0], 1
-		CMP livello, 1
+		MOV triangle[0], 1
+		CMP level, 1
 		JL L1
 		MOV EAX, 1
-		MOV EDX, livello
+		MOV EDX, level
 		MOV ECX, 1
-		MOV triangolo[EAX*4], 1
+		MOV triangle[EAX*4], 1
 
 
 		DEC EDX
@@ -41,13 +34,13 @@ void main()
 	L1: 
 	}
 
-	// Stampa su video
-	printf("Triangolo di Tartaglia fino al livello %d\n", livello);
-	for (i = 0; i <= livello; i++)
+	// Print
+	printf("Pascal's Triangle of %d levels\n", level);
+	for (i = 0; i <= level; i++)
 	{
 		unsigned int j;
 		for (j = 0; j <= i; j++)
-			printf("%d ", triangolo[k++]);
+			printf("%d ", triangle[k++]);
 		printf("\n");
 	}
 }

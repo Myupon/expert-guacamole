@@ -1,16 +1,9 @@
-/********************************************************************************
-*                                                                              *
-*                   Architetture dei sistemi di Elaborazione                   *
-*                                                                              *
-********************************************************************************
-
-Elaborato 1
-Descrizione: Dato un array di puntatori a stringa (ogni cella del vettore contiene
-			 l'indirizzo a 32 bit del primo carattere della stringa), cercare la
-			 prima occorrenza di una sottostringa all'interno di ogni stringa del
-			 vettore.
-
-********************************************************************************/
+/*
+Ex01
+Given an array of pointers to string (every cell of the vector containing the 32-bit
+address of the first character of the string), find the first substring occurrence
+in each string of the vector.
+*/
 
 #include "stdafx.h"
 
@@ -18,14 +11,14 @@ void main()
 {
 	// Input
 	char* strings[] =	{
-							"Elaborato di Architetture","139",
-							"L'Arco del cerchio","L'arco di trionfo"
-						};							//Array di puntatori a stringa
-	int num = sizeof(strings) / sizeof(strings[0]);	//Il numero di stringhe nell'array
-	char subStr[] = "Arc";							//La sottostringa da cercare
+							"C Exercise","Number One",
+							"Hercules","Have Mercy"
+						};							//Array of pointers to string
+	int num = sizeof(strings) / sizeof(strings[0]);	//Array strings count
+	char subStr[] = "erc";							//Substring to look for
 
 	// Output
-	int posizioni[256];	//Posizioni in cui ・stata trovata la sottostringa
+	int pos[256];	//Positions in which the substring has been found
 
 	__asm
 	{
@@ -41,18 +34,18 @@ void main()
 		JE L1
 		INC EAX
 		JMP L3
-	L2: MOV posizioni[EBX], EDX
+	L2: MOV pos[EBX], EDX
 		INC EBX
 		CMP EBX, num
 		JL L4
 	}
 
-	// Stampa su video
+	// Print
 	{
 		int i;
 		for (i = 0; i<num; i++)
 		{
-			printf("Sottostringa in posizione=%d della stringa[%d]\n", posizioni[i], i);
+			printf("Substring Position = %d of string [%d]\n", pos[i], i);
 		}
 	}
 	getchar();
